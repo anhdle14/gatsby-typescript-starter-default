@@ -1,0 +1,39 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "psi-header.variables": [
+    ["author", "Le Anh Duc"],
+    ["authoremail", "anhdle14@hotmail.com"]
+  ],
+  "psi-header.templates": [
+    {
+      "language": "*",
+      "template": [
+        "File: <<filerelativepath>>",
+        "Project: <<projectname>>",
+        "Created Date: <<filecreated('dddd MMMM Do YYYY')>>",
+        "Author: <<author>>",
+        "-----",
+        "Last Modified: <<filecreated('dddd MMMM Do YYYY h:mm:ss a')>>",
+        "Modified By: <<author>> <<<authoremail>>>",
+        "-----",
+        "Copyright (c) <<year>>"
+      ]
+    }
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/public": true,
+    "**/node_modules": true,
+    "**/.cache": true,
+    "**/package-lock.json": true
+  },
+}
