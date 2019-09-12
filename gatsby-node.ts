@@ -1,17 +1,51 @@
-/*
- * File: /gatsby-node.ts
- * Project: gatsby-typescript-starter-default
- * Created Date: Tuesday September 10th 2019
- * Author: Le Anh Duc
- * -----
- * Last Modified: Tuesday September 10th 2019 3:35:27 pm
- * Modified By: Le Anh Duc <anhdle14@hotmail.com>
- * -----
- * Copyright (c) 2019
- */
+import { createFilePath } from "gatsby-source-filesystem";
+import { resolve } from "path";
 
-/*
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+export const onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  switch (node.internal.type) {
+    case "MarkdownRemark":
+      createNodeField({
+        node,
+        name: "slug",
+        value: createFilePath({ node, getNode }),
+      });
+      break;
+  }
+};
+
+export const createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  // Custom 404 Page
+  createPage({
+    path: "/404",
+    component: resolve("./src/templates/404.tsx"),
+  });
+
+  // Posts Page
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const path = node.fields.slug;
+    createPage({
+      path,
+      component: resolve("./src/templates/Post.tsx"),
+      context: {
+        slug: path,
+      },
+    });
+  });
+};

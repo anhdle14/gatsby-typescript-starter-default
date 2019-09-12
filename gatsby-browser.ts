@@ -1,17 +1,1 @@
-/*
- * File: /gatsby-browser.ts
- * Project: gatsby-typescript-starter-default
- * Created Date: Tuesday September 10th 2019
- * Author: Le Anh Duc
- * -----
- * Last Modified: Tuesday September 10th 2019 3:32:09 pm
- * Modified By: Le Anh Duc <anhdle14@hotmail.com>
- * -----
- * Copyright (c) 2019
- */
-
-/*
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import "#styles/init.css";
