@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
@@ -10,8 +11,8 @@
     "experimentalDecorators": true,
     "isolatedModules": false,
     "jsx": "react",
-    "lib": ["es2017", "dom"],
-    "module": "esnext",
+    "lib": ["es5", "es6", "es7", "es2015", "es2017", "dom"],
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
     "noImplicitAny": false,
@@ -21,15 +22,28 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "factory",
-    "paths": {},
-    "preserveConstEnums": true,
+    "paths": {
+      "#components": ["./components"],
+      "#components/*": ["./components/*"],
+      "#definitions": ["./definitions"],
+      "#definitions/*": ["./definitions/*"],
+      "#pages": ["./pages/"],
+      "#pages/*": ["./pages/*"],
+      "#styles": ["./styles/"],
+      "#styles/*": ["./styles/*"],
+      "#templates": ["./templates/"],
+      "#templates/*": ["./templates/*"],
+      "#utils": ["./utils/"],
+      "#utils/*": ["./utils/*"],
+      "*": ["node_modules"]
+    },
     "removeComments": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types", "src/definitions"]
   },
   "exclude": ["factory", "node_modules"],
   "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.d.tsx"]

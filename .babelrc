@@ -1,12 +1,14 @@
 {
   "presets": [
     [
-      "@babel/preset-env", {
+      "@babel/preset-env",
+      {
         "targets": "> 0.25%, not dead"
       }
     ],
     [
-      "@babel/preset-typescript", {
+      "@babel/preset-typescript",
+      {
         "isTSX": true,
         "jsxPragma": "React",
         "allExtensions": true
@@ -21,5 +23,18 @@
 
     // Others
     "@babel/plugin-proposal-numeric-separator",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "#components": "./src/components/",
+          "#definitions": "./src/definitions/",
+          "#pages": "./src/pages/",
+          "#styles": "./src/styles/",
+          "#templates": "./src/templates/",
+          "#utils": "./src/utils/"
+        }
+      }
+    ]
   ]
 }

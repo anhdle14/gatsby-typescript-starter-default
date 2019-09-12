@@ -7,6 +7,8 @@
   "rules": {
     "object-literal-sort-keys": false,
     "semicolon": true,
-    "quotemark": true
+    "quotemark": true,
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false
   }
 }
